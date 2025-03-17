@@ -1,0 +1,30 @@
+.card_container {
+  width: 400px;
+  padding: 20px;
+  margin: 20px;
+  background-color: #2B2B34;
+  border: 1px solid #464650;
+  border-radius: 10px;
+}
+
+
+.card_theme_box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+}
+
+.card_title {}
+
+.card_date_created {
+  margin-left: 30px;
+}
+
+.card_description {
+  font-size: 12px;
+  height: max-content;
+  margin-bottom: 10px;
+}
+
+.card_deadline {}

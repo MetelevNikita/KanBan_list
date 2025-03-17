@@ -1,0 +1,47 @@
+.board_container {
+  width: 450px;
+  height: 700px;
+  background-color: #464650;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.board_container::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.board_container::-webkit-scrollbar-thumb {
+  background-color: #2B2B34; /* Цвет ползунка */
+  border-radius: 4px; /* Округление углов ползунка */
+}
+
+.board_container::-webkit-scrollbar-track {
+  background-color: rgba(0, 123, 255, 0.1); /* Прозрачный фон полосы прокрутки */
+  border-radius: 4px; /* Округление углов фона */
+}
+
+
+.board_box_title {
+  width: 450px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+}
+
+.board_title {
+  font-size: 18px;
+
+}
+
+.board_card_box {}
+
+.board_card_loading {}
+
