@@ -19,6 +19,7 @@ import Card from '@/components/Card/Card'
 // types
 
 import { BoardType, CardType } from '@/types/types'
+import { arrayMove } from '@dnd-kit/sortable'
 
 const Main: FC = () => {
 
@@ -42,6 +43,29 @@ const Main: FC = () => {
         return error;
 
       }
+  }
+
+
+
+  const postCard = async (cardData: CardType[]) => {
+    try {
+
+      const responce = await fetch('http://localhost:3000/api/cards', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(cardData)
+      })
+
+      const data = await responce.json();
+      return data;
+
+    } catch (error) {
+
+    }
+
+
   }
 
   const boardArr: BoardType[] = [
@@ -94,23 +118,38 @@ const Main: FC = () => {
   }
 
 
-  const handleDragEnd = (event: DragEndEvent): void => {
-    console.log(event)
+  const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event
-
-    console.log(active)
-    console.log(over)
-
 
     if(!over) return
 
-    setCard(() => card.map((item: any) => item.id === Number(active.id) ? {...item, status: over.id} : item))
+    setCard((items: any | CardType[]) => {
+      const oldIndex = items.findIndex((item: any) => item.id === active.id)
+      const newIndex = items.findIndex((item: any) => item.id === over.id)
+
+      let updateCards: any
+
+      if (typeof over.id == 'string') {
+        updateCards = card.map((item: any) => item.id === Number(active.id) ? {...item, status: over.id} : item)
+
+
+
+      } else {
+        updateCards = arrayMove(items, oldIndex, newIndex)
+
+      }
+
+      postCard(updateCards)
+      return updateCards
+
+    })
+
 
   }
 
 
   const activeCard = card.find((item: CardType) => item.id === activeCardId)
-  console.log(activeCard)
+
 
 
 
@@ -128,7 +167,7 @@ const Main: FC = () => {
 
       <Row>
         <Col className="d-flex flex-row align-items-start justify-content-center">
-            <DndContext sensors={sensor} collisionDetection={closestCorners} onDragStart={handleDragStart} onDragMove={handleDragMove} onDragEnd={handleDragEnd}>
+            <DndContext sensors={sensor} onDragStart={handleDragStart} onDragMove={handleDragMove} onDragEnd={handleDragEnd}>
 
 
                     {boardArr.map((board: BoardType): React.ReactNode => {
@@ -136,8 +175,8 @@ const Main: FC = () => {
                     })}
 
 
-                    <DragOverlay dropAnimation={{ duration: 200, easing: 'cubic-bezier(0.18, 0.6, 0.3, 1)' }}>
-                      {activeCard ? <Card card={activeCard}></Card> : null}
+                    <DragOverlay dropAnimation={{ duration: 50, easing: 'cubic-bezier(0.18, 0.6, 0.3, 1)' }}>
+                      {activeCard ? <Card card={activeCard}></Card> : <div style={{background: 'red'}}></div>}
                     </DragOverlay>
 
 

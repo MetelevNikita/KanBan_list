@@ -5,56 +5,31 @@
       "author": "Nikita Metelev",
       "title": "test 1",
       "description": "test 1",
-      "status": "inbox",
+      "status": "agreed",
       "deadline": "2025-03-14",
       "dateCreated": "2025-03-14",
       "dateUpdated": "2025-03-14"
     },
-
-    {
-      "id": 2,
-      "author": "Nikita Metelev",
-      "title": "test 2",
-      "description": "test 2",
-      "status": "inbox",
-      "deadline": "2025-03-14",
-      "dateCreated": "2025-03-14",
-      "dateUpdated": "2025-03-14"
-    },
-
     {
       "id": 3,
       "author": "Nikita Metelev",
       "title": "test 3",
       "description": "test 3",
-      "status": "inbox",
+      "status": "agreed",
       "deadline": "2025-03-14",
       "dateCreated": "2025-03-14",
       "dateUpdated": "2025-03-14"
     },
-
     {
       "id": 4,
       "author": "Nikita Metelev",
       "title": "test 4",
       "description": "test 4",
-      "status": "inbox",
+      "status": "rejected",
       "deadline": "2025-03-14",
       "dateCreated": "2025-03-14",
       "dateUpdated": "2025-03-14"
     },
-
-    {
-      "id": 5,
-      "author": "Nikita Metelev",
-      "title": "test 5",
-      "description": "test 5",
-      "status": "inbox",
-      "deadline": "2025-03-14",
-      "dateCreated": "2025-03-14",
-      "dateUpdated": "2025-03-14"
-    },
-
     {
       "id": 6,
       "author": "Nikita Metelev",
@@ -65,7 +40,6 @@
       "dateCreated": "2025-03-14",
       "dateUpdated": "2025-03-14"
     },
-
     {
       "id": 7,
       "author": "Nikita Metelev",
@@ -76,7 +50,6 @@
       "dateCreated": "2025-03-14",
       "dateUpdated": "2025-03-14"
     },
-
     {
       "id": 8,
       "author": "Nikita Metelev",
@@ -86,7 +59,26 @@
       "deadline": "2025-03-14",
       "dateCreated": "2025-03-14",
       "dateUpdated": "2025-03-14"
+    },
+    {
+      "id": 2,
+      "author": "Nikita Metelev",
+      "title": "test 2",
+      "description": "test 2",
+      "status": "inbox",
+      "deadline": "2025-03-14",
+      "dateCreated": "2025-03-14",
+      "dateUpdated": "2025-03-14"
+    },
+    {
+      "id": 5,
+      "author": "Nikita Metelev",
+      "title": "test 5",
+      "description": "test 5",
+      "status": "inbox",
+      "deadline": "2025-03-14",
+      "dateCreated": "2025-03-14",
+      "dateUpdated": "2025-03-14"
     }
-
   ]
 }

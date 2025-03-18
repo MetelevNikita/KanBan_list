@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { CSS } from '@dnd-kit/utilities'
 import { useDroppable } from '@dnd-kit/core'
+import { SortableContext, arrayMove, sortableKeyboardCoordinates, verticalListSortingStrategy } from '@dnd-kit/sortable'
 
 
 // types
@@ -50,9 +51,13 @@ const Board: FC<BoardProps> = ({ board, card }) => {
 
       <div className={styles.board_card_box}>
 
+        <SortableContext items={card} strategy={verticalListSortingStrategy}>
+
           {(!card) ? <div className={styles.board_card_loading}>Loading...</div> : card.map((item: CardType): React.ReactNode => {
             return <Card key={item.id} card={item}></Card>
           })}
+
+        </SortableContext>
 
       </div>
 

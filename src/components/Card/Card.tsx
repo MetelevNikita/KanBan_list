@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import {CSS} from '@dnd-kit/utilities';
 import { useDraggable } from '@dnd-kit/core';
+import { useSortable } from '@dnd-kit/sortable';
 
 
 // css
@@ -17,10 +18,13 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ card }) => {
 
-  const {attributes, listeners, setNodeRef, transform} = useDraggable({id: card.id});
+  // const {attributes, listeners, setNodeRef, transform} = useDraggable({id: card.id});
+
+  const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id: card.id});
 
   const style = {
     transform: CSS.Translate.toString(transform),
+    transition
   };
 
 
