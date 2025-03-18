@@ -1,4 +1,7 @@
 import { FC } from 'react'
+import { CSS } from '@dnd-kit/utilities'
+import { useDroppable } from '@dnd-kit/core'
+
 
 // types
 
@@ -22,10 +25,20 @@ interface BoardProps {
 const Board: FC<BoardProps> = ({ board, card }) => {
 
 
-  console.log(card)
+
+  const { setNodeRef } = useDroppable({
+    id: board.boardId,
+    data: {
+      type: board.title,
+    }
+  })
+
+
 
   return (
-    <div>
+
+
+    <div ref={setNodeRef} className={styles.board_container_box}>
 
     <div  className={styles.board_box_title} style={{backgroundColor: board.colorId}}>
 
@@ -36,9 +49,11 @@ const Board: FC<BoardProps> = ({ board, card }) => {
     <div className={styles.board_container}>
 
       <div className={styles.board_card_box}>
-        {(!card) ? <div className={styles.board_card_loading}>Loading...</div> : card.map((item: CardType): React.ReactNode => {
-          return <Card key={item.id} card={item}></Card>
-        })}
+
+          {(!card) ? <div className={styles.board_card_loading}>Loading...</div> : card.map((item: CardType): React.ReactNode => {
+            return <Card key={item.id} card={item}></Card>
+          })}
+
       </div>
 
     </div>

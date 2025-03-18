@@ -1,11 +1,19 @@
+
+.container_box {
+  z-index: 2;
+}
+
 .board_container {
   width: 450px;
   height: 700px;
   background-color: #464650;
-  overflow-y: scroll;
-  overflow-x: hidden;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  overflow-y: overlay;
+  overflow-x: hidden;
+
+
+
 }
 
 .board_container::-webkit-scrollbar {
@@ -14,13 +22,13 @@
 }
 
 .board_container::-webkit-scrollbar-thumb {
-  background-color: #2B2B34; /* Цвет ползунка */
-  border-radius: 4px; /* Округление углов ползунка */
+  background-color: #2B2B34;
+  border-radius: 4px;
 }
 
 .board_container::-webkit-scrollbar-track {
-  background-color: rgba(0, 123, 255, 0.1); /* Прозрачный фон полосы прокрутки */
-  border-radius: 4px; /* Округление углов фона */
+  background-color: rgba(0, 123, 255, 0.1);
+  border-radius: 4px;
 }
 
 
@@ -33,6 +41,7 @@
   background-color: red;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  overflow-wrap: break-word;
 
 }
 
@@ -41,7 +50,14 @@
 
 }
 
-.board_card_box {}
+.board_card_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 .board_card_loading {}
 

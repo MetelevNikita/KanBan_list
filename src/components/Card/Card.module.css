@@ -1,10 +1,17 @@
 .card_container {
   width: 400px;
   padding: 20px;
-  margin: 20px;
   background-color: #2B2B34;
   border: 1px solid #464650;
   border-radius: 10px;
+  margin-bottom: 10px;
+
+
+}
+
+
+.dragging {
+  z-index: 9999; /* Убедитесь, что это значение выше, чем у колонок */
 }
 
 

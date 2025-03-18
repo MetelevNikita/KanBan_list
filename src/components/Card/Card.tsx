@@ -1,4 +1,7 @@
 import { FC } from 'react'
+import {CSS} from '@dnd-kit/utilities';
+import { useDraggable } from '@dnd-kit/core';
+
 
 // css
 
@@ -14,12 +17,20 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ card }) => {
 
+  const {attributes, listeners, setNodeRef, transform} = useDraggable({id: card.id});
 
-  console.log(card)
+  const style = {
+    transform: CSS.Translate.toString(transform),
+  };
+
+
+
+
+
 
 
   return (
-    <div className={styles.card_container}>
+    <div className={styles.card_container} {...attributes} {...listeners} ref={setNodeRef} style={style}>
 
         <div className={styles.card_theme_box}>
 
@@ -37,3 +48,6 @@ const Card: FC<CardProps> = ({ card }) => {
 }
 
 export default Card
+
+
+
